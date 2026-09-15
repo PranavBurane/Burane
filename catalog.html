@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalog | BURANÉ, The Culture Co.</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: '#112218',
+                        gold: '#D4AF37',
+                        cream: {
+                            50: '#FBF9F5',
+                            100: '#F3EFE6',
+                            200: '#E5DEC9',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            background-color: #F3EFE6; /* Page background color */
+            color: #112218;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #E5DEC9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #112218;
+        }
+    </style>
+</head>
+<body class="bg-[#F3EFE6] text-forest font-sans antialiased selection:bg-gold selection:text-forest">
+
+    <!-- Header / Navbar (Updated to Deep Forest Green) -->
+    <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-forest/95 backdrop-blur-md border-b border-gold/20 py-4 text-white">
+        <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+            <!-- Brand Logo with Golden Downside & Bold Fonts -->
+            <a href="burane.html" class="flex flex-col group">
+                <span class="font-serif text-2xl font-bold tracking-wider text-white group-hover:text-gold transition-colors">BURANÉ</span>
+                <span class="text-[10px] tracking-[0.25em] uppercase text-gold font-semibold">The Culture Co.</span>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="burane.html" class="text-white/80 hover:text-gold transition-colors">Home</a>
+                <a href="catalog.html" class="text-gold border-b-2 border-gold pb-1 font-semibold">Catalog</a>
+                <a href="burane.html#story" class="text-white/80 hover:text-gold transition-colors">Our Story</a>
+                <a href="burane.html#contact" class="text-white/80 hover:text-gold transition-colors">Contact</a>
+            </nav>
+
+            <!-- Quick Action / WhatsApp CTA -->
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/919411156039" target="_blank" class="hidden sm:inline-flex items-center space-x-2 bg-gold text-forest px-4 py-2 rounded-full text-xs font-semibold tracking-wider hover:bg-white transition-all shadow">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>ORDER VIA WHATSAPP</span>
+                </a>
+                <!-- Mobile Menu Toggle Button -->
+                <button id="menu-btn" class="md:hidden text-white hover:text-gold focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-forest border-b border-gold/20 px-6 py-6 space-y-4 shadow-2xl mt-4 text-white">
+            <a href="burane.html" class="block text-sm font-medium text-white/80 hover:text-gold py-1">Home</a>
+            <a href="catalog.html" class="block text-sm font-semibold text-gold py-1">Catalog</a>
+            <a href="burane.html#story" class="block text-sm font-medium text-white/80 hover:text-gold py-1">Our Story</a>
+            <a href="burane.html#contact" class="block text-sm font-medium text-white/80 hover:text-gold py-1">Contact</a>
+            <a href="https://wa.me/919411156039" target="_blank" class="inline-flex items-center space-x-2 bg-gold text-forest px-4 py-2.5 rounded-full text-xs font-semibold tracking-wider mt-2 shadow">
+                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                <span>ORDER VIA WHATSAPP</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="pt-36 pb-24 px-6 max-w-7xl mx-auto">
+        
+        <!-- Page Title & Intro -->
+        <div class="text-center max-w-2xl mx-auto mb-16 space-y-4">
+            <span class="text-xs uppercase tracking-[0.3em] text-gold font-bold">The Complete Collection</span>
+            <h1 class="font-serif text-4xl sm:text-5xl font-bold tracking-tight text-forest">Wild Himalayan Ferments</h1>
+            <p class="text-forest/70 text-sm sm:text-base">
+                Explore our living collection of wild-crafted botanical tonics. Hand-brewed in high altitudes, containing zero synthetic stabilizers, and packed with raw living culture.
+            </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="flex flex-wrap items-center justify-center gap-2 mb-12" id="filter-container">
+            <button data-filter="all" class="filter-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase bg-forest text-white transition-all shadow-sm">
+                All Brews (15)
+            </button>
+            <button data-filter="signature" class="filter-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase bg-forest/5 text-forest hover:bg-forest/10 border border-forest/10 transition-all">
+                Signatures & Limited
+            </button>
+            <button data-filter="sparkling" class="filter-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase bg-forest/5 text-forest hover:bg-forest/10 border border-forest/10 transition-all">
+                Sparkling & Sodas
+            </button>
+            <button data-filter="mixology" class="filter-btn px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase bg-forest/5 text-forest hover:bg-forest/10 border border-forest/10 transition-all">
+                Mixology-Ready
+            </button>
+        </div>
+
+        <!-- Product Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="product-grid">
+
+            <!-- Product 1: Malta Sunshine -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="sparkling">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Citrus Tonic</span>
+                        <span class="text-xs text-white/40">#01</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Malta Sunshine</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Harvested from sun-drenched Himalayan valley orchards, it delivers a punchy, zesty, lemony-citrus profile designed for those who love a serious sour kick.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Malta%20Sunshine." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2: Buransh Reserve -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl relative" data-category="signature">
+                <div class="absolute top-4 right-4 bg-gold/20 border border-gold/50 text-gold text-[9px] font-bold px-2.5 py-0.5 uppercase tracking-widest rounded-full">
+                    Limited Edition
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Signature Floral</span>
+                        <span class="text-xs text-white/40">#02</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Buransh Reserve</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Hand-harvested crimson rhododendron blooms from high-altitude slopes. Deeply botanical, faintly sweet, and structured with a complex floral tartness.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Buransh%20Reserve." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 3: Kafal Wild Berry Brew -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl relative" data-category="signature">
+                <div class="absolute top-4 right-4 bg-gold/20 border border-gold/50 text-gold text-[9px] font-bold px-2.5 py-0.5 uppercase tracking-widest rounded-full">
+                    Limited Edition
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Wild Berry</span>
+                        <span class="text-xs text-white/40">#03</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Kafal Wild Berry Brew</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        A rare specialty featuring a super sweet profile with just a whisper of mild sourness. Kafal wild berries only fruit once a year.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml (Only)</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Kafal%20Wild%20Berry%20Brew." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 4: Ginger Bug Elixir -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="sparkling">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Wild Culture</span>
+                        <span class="text-xs text-white/40">#04</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Ginger Bug Elixir</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        The living pulse of our craft—brewed with real organic ginger, water, and raw unrefined sugar, containing an active wild symbiotic culture.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Ginger%20Bug%20Elixir." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 5: Himalayan Mint & Lime Sparkler -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="sparkling">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Sparkling Tonic</span>
+                        <span class="text-xs text-white/40">#05</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Mint & Lime Sparkler</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        A cleaner, sharper take on a classic mojito. Crisp mountain mint meets bright citrus for a refreshing daily pour.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Mint%20%26%20Lime%20Sparkler." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 6: Apple & Cinnamon Spice Ferment -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="signature">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Winter Brew</span>
+                        <span class="text-xs text-white/40">#06</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Apple & Cinnamon Spice</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        An initial wave of deep, rich sweetness finishing on a warm, spiced edge. A total sensory blast for winter.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Apple%20%26%20Cinnamon%20Spice%20Ferment." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 7: Wild Pine Needle Brew -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="signature">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Exclusive Brew</span>
+                        <span class="text-xs text-white/40">#07</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Wild Pine Needle Brew</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Aggressively tart, punchy, and crisp—fermenting into an artisanal, wild soda profile exclusive to BURANÉ.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Wild%20Pine%20Needle%20Brew." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 8: Himalayan Honey & Lemon Mead-Style Ferment -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="signature">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Mead-Style</span>
+                        <span class="text-xs text-white/40">#08</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Honey & Lemon Mead-Style</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Crafted using real, locally sourced mountain honey—elevating a simple lemon tonic into something golden and luxurious.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Honey%20%26%20Lemon%20Mead-Style%20Ferment." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 9: Wild Rose Petal Infusion -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="signature">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Floral Infusion</span>
+                        <span class="text-xs text-white/40">#09</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Wild Rose Petal Infusion</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Born from house rosebushes, this is elegant, deeply floral, and a sweet-tooth's absolute favorite.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Wild%20Rose%20Petal%20Infusion." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 10: Spiced Wild Pear Ferment -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="mixology">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Mixology Pick</span>
+                        <span class="text-xs text-white/40">#10</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Spiced Wild Pear Ferment</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Built for experimental drinkers and cocktail heads. Delivers a malty, tart, and deep finish that pairs brilliantly with spirits.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Spiced%20Wild%20Pear%20Ferment." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 11: Jamun Noir -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="signature">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Rare Reserve</span>
+                        <span class="text-xs text-white/40">#11</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Jamun Noir</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Fermented to carry a rich, vino-esque depth that walks the line between a bold wine and a crisp wild beer.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml (Max)</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Jamun%20Noir." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 12: Vitis Wild -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="mixology">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Specialty Homegrown</span>
+                        <span class="text-xs text-white/40">#12</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Vitis Wild</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Bursting with homegrown grape character—fruity, lightly alcoholic, sweet, and carrying a sharp little sour finish.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Vitis%20Wild." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 13: Pom Cola -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="sparkling">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Wild Cola</span>
+                        <span class="text-xs text-white/40">#13</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Pom Cola</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Combining wild pomegranate and sweet pineapple to recreate a deep, spiced cola flavor profile with a wild, natural punch.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Pom%20Cola." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 14: Litchi Nectar -->
+            <div class="product-card group bg-forest text-white rounded-2xl border border-forest/20 overflow-hidden flex flex-col justify-between hover:border-gold transition-all duration-300 shadow-lg hover:shadow-2xl" data-category="signature">
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Seasonal Favorite</span>
+                        <span class="text-xs text-white/40">#14</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Litchi Nectar</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        A fleeting seasonal favorite that brings crisp, bright orchard freshness straight to your glass.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Litchi%20Nectar." target="_blank" class="w-full bg-white hover:bg-gold text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 15: Peachia -->
+            <div class="product-card group bg-forest text-white rounded-2xl border-2 border-gold overflow-hidden flex flex-col justify-between shadow-2xl relative" data-category="signature">
+                <div class="absolute top-0 right-0 bg-gold text-forest text-[9px] font-bold px-3 py-1 uppercase tracking-widest rounded-bl-lg shadow">
+                    Pranav's Pick
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex items-start justify-between">
+                        <span class="text-[10px] tracking-[0.2em] uppercase text-gold font-bold px-2.5 py-1 bg-white/5 rounded-full border border-gold/30">Founder's Cut</span>
+                        <span class="text-xs text-white/40">#15</span>
+                    </div>
+                    <h3 class="font-serif text-2xl font-bold text-white group-hover:text-gold transition-colors">Peachia</h3>
+                    <p class="text-white/70 text-sm leading-relaxed">
+                        Pranav’s personal favorite. Pure, unadulterated peach flavor with an undefined natural sweetness. Your holy grail peach iced tea.
+                    </p>
+                </div>
+                <div class="px-6 pb-6 pt-2 border-t border-white/10 space-y-4 bg-black/10">
+                    <div class="flex items-center justify-between text-xs text-white/60">
+                        <span>Select Size:</span>
+                        <div class="flex space-x-1.5 size-selector">
+                            <button onclick="selectSize(this, '200ml')" class="size-btn px-2.5 py-1 rounded border border-gold bg-gold/20 text-white text-[10px] font-semibold">200ml</button>
+                            <button onclick="selectSize(this, '300ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">300ml</button>
+                            <button onclick="selectSize(this, '500ml')" class="size-btn px-2.5 py-1 rounded border border-white/20 text-white/70 text-[10px] font-semibold hover:border-gold">500ml</button>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/919411156039?text=Hi,%20I'd%20like%20to%20order%20Peachia%20(Founder's%20Cut)." target="_blank" class="w-full bg-gold hover:bg-white text-forest py-2.5 rounded-xl text-xs font-semibold tracking-wider transition-all flex items-center justify-center space-x-2 shadow">
+                        <i data-lucide="shopping-bag" class="w-3.5 h-3.5"></i>
+                        <span>INQUIRE / ORDER</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-cream-200 bg-forest text-white py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <span class="font-serif text-xl font-bold tracking-wider text-white">BURANÉ, The Culture Co.</span>
+                <p class="text-xs text-white/50 mt-1">Wild Himalayan Ferments • Founded by Pranav</p>
+            </div>
+            <div class="flex items-center space-x-6 text-xs text-white/70">
+                <a href="https://instagram.com/burane.culture" target="_blank" class="hover:text-gold transition-colors flex items-center space-x-1">
+                    <i data-lucide="instagram" class="w-4 h-4"></i>
+                    <span>@burane.culture</span>
+                </a>
+                <a href="mailto:thecultureco.burane@gmail.com" class="hover:text-gold transition-colors flex items-center space-x-1">
+                    <i data-lucide="mail" class="w-4 h-4"></i>
+                    <span>Email Us</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script Utilities -->
+    <script>
+        lucide.createIcons();
+
+        // Dynamic Header Scroll Transition Effect
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                header.classList.add('bg-forest/95', 'backdrop-blur-md', 'shadow-md', 'border-gold/30', 'py-3');
+                header.classList.remove('bg-forest/95', 'border-transparent', 'py-4');
+            } else {
+                header.classList.remove('bg-forest/95', 'shadow-md', 'py-3');
+                header.classList.add('bg-forest/95', 'border-gold/20', 'py-4');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Size Selection Logic
+        function selectSize(buttonElement, size) {
+            const container = buttonElement.closest('.size-selector');
+            const buttons = container.querySelectorAll('.size-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('border-gold', 'bg-gold/20', 'text-white');
+                btn.classList.add('border-white/20', 'text-white/70');
+            });
+            buttonElement.classList.remove('border-white/20', 'text-white/70');
+            buttonElement.classList.add('border-gold', 'bg-gold/20', 'text-white');
+        }
+
+        // Category Filter Logic
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => {
+                    b.classList.remove('bg-forest', 'text-white');
+                    b.classList.add('bg-forest/5', 'text-forest');
+                });
+                btn.classList.remove('bg-forest/5', 'text-forest');
+                btn.classList.add('bg-forest', 'text-white');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
