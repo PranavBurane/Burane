@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Roots & Granny's Trees | BURANÉ, The Culture Co.</title>
+    <meta name="description" content="Discover the ancestral lineage, high-altitude orchards, and the story behind Granny's trees that inspire every bottle of BURANÉ.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        forest: {
+                            950: '#0A140E',
+                            900: '#112217',
+                            800: '#1A3324',
+                            700: '#264D35',
+                            600: '#356649',
+                        },
+                        cream: {
+                            50: '#FBF9F5',
+                            100: '#F3EFE6',
+                            200: '#E5DEC9',
+                        },
+                        earth: {
+                            DEFAULT: '#8C7B6C',
+                            dark: '#594C41',
+                        },
+                        gold: {
+                            300: '#F3E0A3',
+                            400: '#E5C158',
+                            500: '#D4AF37',
+                            600: '#B89728',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FBF9F5;
+            color: #112217;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        [x-cloak] { display: none !important; }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 0%, #D4AF37 50%, #AA7C11 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-forest-950 antialiased selection:bg-gold-500 selection:text-forest-900" 
+      x-data="{ 
+          mobileMenu: false, 
+          loadingScreen: false, 
+          headerDark: true,
+          init() {
+              const observer = new IntersectionObserver((entries) => {
+                  entries.forEach(entry => {
+                      if (entry.isIntersecting) {
+                          this.headerDark = entry.target.dataset.theme === 'dark';
+                      }
+                  });
+              }, { threshold: 0.1, rootMargin: '-80px 0px 0px 0px' });
+
+              document.querySelectorAll('section[data-theme]').forEach(section => {
+                  observer.observe(section);
+              });
+          }
+      }" 
+      @pageshow="loadingScreen = false">
+
+    <!-- Loading Screen Overlay -->
+    <div x-show="loadingScreen" x-cloak class="fixed inset-0 z-50 bg-forest-900 flex flex-col items-center justify-center text-cream-50 transition-opacity duration-300">
+        <div class="space-y-4 text-center">
+            <span class="font-serif text-3xl font-bold tracking-widest text-gold-400 animate-pulse">BURANÉ</span>
+            <p class="text-xs uppercase tracking-[0.4em] text-gold-300">Entering the orchard...</p>
+        </div>
+    </div>
+
+    <!-- Header / Navigation with Dynamic Section-Aware Color Switching -->
+    <header class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 backdrop-blur-md"
+            :class="headerDark ? 'bg-forest-900/90 border-b border-forest-800 text-cream-50' : 'bg-cream-50/95 border-b border-cream-200 shadow-sm text-forest-900'">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="burane.html" @click.prevent="loadingScreen = true; setTimeout(() => window.location.href='burane.html', 300)" class="flex items-center space-x-3 group">
+                <img src="images/BURANE Logo.png" alt="BURANÉ Logo" class="h-9 w-auto object-contain">
+                <div class="flex flex-col">
+                    <span class="font-serif text-xl font-bold tracking-wider" :class="headerDark ? 'text-cream-50' : 'text-forest-900'">BURANÉ</span>
+                    <span class="text-[9px] tracking-[0.25em] uppercase text-gold-500 font-semibold">THE CULTURE CO.</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-6 text-xs lg:text-sm font-medium tracking-wide">
+                <a href="burane.html" @click.prevent="loadingScreen = true; setTimeout(() => window.location.href='burane.html', 300)" class="transition-colors" :class="headerDark ? 'text-cream-50/80 hover:text-gold-400' : 'text-forest-900/80 hover:text-gold-600'">Home</a>
+                <a href="catalog.html" @click.prevent="loadingScreen = true; setTimeout(() => window.location.href='catalog.html', 300)" class="transition-colors" :class="headerDark ? 'text-cream-50/80 hover:text-gold-400' : 'text-forest-900/80 hover:text-gold-600'">Catalog & Pricing</a>
+                <a href="story.html" class="font-semibold text-gold-500">Granny's Trees & Story</a>
+            </nav>
+
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://wa.me/919411156039?text=Hi%20BURANÉ!%20I'd%20like%20to%20know%20more%20about%20your%20story." target="_blank" class="bg-gold-500 text-forest-900 px-5 py-2.5 rounded-full text-xs font-bold tracking-wider uppercase hover:bg-gold-400 transition-all shadow-sm">
+                    WhatsApp Us
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden focus:outline-none" :class="headerDark ? 'text-cream-50' : 'text-forest-900'">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path x-show="!mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+                    <path x-show="mobileMenu" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div x-show="mobileMenu" x-cloak class="md:hidden absolute top-full left-0 right-0 px-6 py-6 space-y-4 shadow-lg border-b"
+             :class="headerDark ? 'bg-forest-900 border-forest-800 text-cream-50' : 'bg-cream-50 border-cream-200 text-forest-900'">
+            <a href="burane.html" @click.prevent="loadingScreen = true; setTimeout(() => window.location.href='burane.html', 300)" class="block text-sm font-medium py-1">Home</a>
+            <a href="catalog.html" @click.prevent="loadingScreen = true; setTimeout(() => window.location.href='catalog.html', 300)" class="block text-sm font-medium py-1">Catalog & Pricing</a>
+            <a href="story.html" class="block text-sm font-bold text-gold-500 py-1">Granny's Trees & Story</a>
+            <div class="pt-4 border-t" :class="headerDark ? 'border-forest-800' : 'border-cream-200'">
+                <a href="https://wa.me/919411156039?text=Hi%20BURANÉ!%20I'd%20like%20to%20know%20more%20about%20your%20story." target="_blank" class="block text-center bg-gold-500 text-forest-900 py-3 rounded-full text-xs font-bold tracking-wider uppercase">
+                    WhatsApp Us
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Dark Theme) -->
+    <section data-theme="dark" class="relative pt-36 pb-20 px-6 bg-forest-900 text-cream-50 text-center overflow-hidden border-b border-forest-800">
+        <div class="absolute inset-0 opacity-15 bg-cover bg-center pointer-events-none" style="background-image: url('images/Peachia.png');"></div>
+        <div class="max-w-4xl mx-auto space-y-6 relative z-10">
+            <div class="inline-block px-4 py-1.5 rounded-full border border-gold-500/40 text-gold-400 text-xs uppercase tracking-[0.25em] font-semibold">
+                Ancestral Roots
+            </div>
+            <h1 class="font-serif text-4xl sm:text-6xl font-bold tracking-tight leading-tight">
+                Granny's Trees &<br><span class="text-gold-400 italic">The Soil That Raised Us</span>
+            </h1>
+            <p class="text-cream-200/80 text-base sm:text-lg font-light max-w-2xl mx-auto leading-relaxed">
+                Long before the bottles, the fermentations, and the laboratory in Rishikesh, there were the ancient fruit trees planted by grandmother in the high-altitude Himalayan air.
+            </p>
+        </div>
+    </section>
+
+    <!-- Detailed Narrative & Orchard Story (Light Theme) -->
+    <section data-theme="light" class="py-24 px-6 bg-cream-50 text-forest-900">
+        <div class="max-w-5xl mx-auto space-y-20">
+            
+            <!-- Story Chapter 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold-600 font-bold">The Origin</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900">
+                        Where Every Ferment Begins
+                    </h2>
+                    <p class="text-forest-900/80 text-base leading-relaxed font-light">
+                        The inspiration for BURANÉ isn't found in modern commercial recipes—it is rooted right in the earth of our family's ancestral land. Granny’s trees have weathered decades of crisp Himalayan winters, torrential monsoon rains, and intense mountain sun. 
+                    </p>
+                    <p class="text-forest-900/80 text-base leading-relaxed font-light">
+                        These old-growth trees yield fruit with an unmatched mineral depth and concentrated wild character. When harvested at peak ripeness, they carry the true taste of the mountains that artificial flavorings can never replicate.
+                    </p>
+                </div>
+                <div class="relative group">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-2 border-gold-500/40 bg-forest-900 p-2">
+                        <img src="images/Peachia.png" alt="Granny's Trees in the Himalayan Orchard" class="w-full h-[380px] object-cover rounded-2xl group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <span class="absolute bottom-4 left-6 bg-forest-900/90 text-gold-300 text-[11px] tracking-widest uppercase px-3 py-1 rounded-full border border-gold-500/30">
+                        The Old Orchard, Uttarakhand
+                    </span>
+                </div>
+            </div>
+
+            <!-- Story Chapter 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="relative group">
+                    <div class="rounded-3xl overflow-hidden shadow-2xl border-2 border-gold-500/40 bg-forest-900 p-2">
+                        <img src="images/BURANE Logo.png" alt="Harvesting wild botanicals" class="w-full h-[380px] object-cover rounded-2xl bg-forest-800 p-8 group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <span class="absolute bottom-4 left-6 bg-forest-900/90 text-gold-300 text-[11px] tracking-widest uppercase px-3 py-1 rounded-full border border-gold-500/30">
+                        Wild Foraging & Care
+                    </span>
+                </div>
+                <div class="space-y-6">
+                    <span class="text-xs uppercase tracking-[0.3em] text-gold-600 font-bold">Generational Stewardship</span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-bold text-forest-900">
+                        Preserving the Wild Heritage
+                    </h2>
+                    <p class="text-forest-900/80 text-base leading-relaxed font-light">
+                        Pranav founded BURANÉ to honor this exact lineage. By taking the wild, complex fruits from these protected family trees and introducing them to natural wild fermentation, we transform seasonal abundance into a living beverage.
+                    </p>
+                    <p class="text-forest-900/80 text-base leading-relaxed font-light">
+                        Every batch respects the rhythm of nature—we only harvest what the trees provide, ensuring the orchards remain healthy and balanced for generations to come.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Real Images Photo Grid Section (Dark Theme) -->
+    <section data-theme="dark" class="py-24 px-6 bg-forest-900 text-cream-50 border-t border-b border-forest-800">
+        <div class="max-w-7xl mx-auto space-y-12">
+            <div class="text-center space-y-3 max-w-2xl mx-auto">
+                <div class="inline-block px-4 py-1.5 rounded-full border border-gold-500/40 text-gold-400 text-xs uppercase tracking-[0.25em] font-semibold">
+                    Visual Archive
+                </div>
+                <h2 class="font-serif text-3xl sm:text-5xl font-bold text-cream-50">Glimpses from the Orchard</h2>
+                <p class="text-cream-200/70 text-sm sm:text-base font-light">
+                    Real captures of Granny's trees, seasonal blooms, and the high-altitude landscape.
+                </p>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-gold-500/30 bg-forest-800 h-80 shadow-xl">
+                    <img src="images/Peachia.png" alt="Granny's Tree View 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-900 via-transparent opacity-80"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-bold block">Canopy View</span>
+                        <p class="text-cream-50 text-sm font-serif">Spring blossom on ancestral branches</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-gold-500/30 bg-forest-800 h-80 shadow-xl">
+                    <img src="images/Peachia.png" alt="Granny's Tree View 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-900 via-transparent opacity-80"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-bold block">Harvest Season</span>
+                        <p class="text-cream-50 text-sm font-serif">Hand-picked wild mountain fruit</p>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="group relative rounded-2xl overflow-hidden border border-gold-500/30 bg-forest-800 h-80 shadow-xl">
+                    <img src="images/Peachia.png" alt="Granny's Tree View 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-900 via-transparent opacity-80"></div>
+                    <div class="absolute bottom-4 left-4 right-4">
+                        <span class="text-xs uppercase tracking-widest text-gold-400 font-bold block">Orchard Soil</span>
+                        <p class="text-cream-50 text-sm font-serif">Untouched mineral-rich Himalayan earth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Footer Section (Light Theme) -->
+    <section data-theme="light" class="py-20 px-6 bg-cream-50 text-forest-900 text-center">
+        <div class="max-w-3xl mx-auto space-y-6">
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold">Taste the Story in Every Bottle</h2>
+            <p class="text-forest-900/80 font-light max-w-xl mx-auto">
+                Explore our micro-batch releases crafted directly from these high-altitude traditions.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="catalog.html" @click.prevent="loadingScreen = true; setTimeout(() => window.location.href='catalog.html', 300)" class="w-full sm:w-auto bg-gold-500 hover:bg-forest-900 hover:text-cream-50 text-forest-900 px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase transition-all shadow-lg">
+                    VIEW CATALOG & PRICING
+                </a>
+                <a href="burane.html" @click.prevent="loadingScreen = true; setTimeout(() => window.location.href='burane.html', 300)" class="w-full sm:w-auto bg-transparent hover:bg-forest-900/5 border border-forest-900/30 text-forest-900 px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase transition-all">
+                    BACK TO HOME
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-forest-800 bg-forest-900 text-cream-50 py-10 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div class="flex items-center space-x-3">
+                <img src="images/BURANE Logo.png" alt="BURANÉ Logo" class="h-8 w-auto object-contain">
+                <div>
+                    <span class="font-serif text-lg font-bold tracking-wider text-cream-50">BURANÉ</span>
+                    <p class="text-[10px] uppercase tracking-[0.2em] text-gold-400 font-semibold">The Culture Co.</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-6 text-xs text-cream-50/70">
+                <a href="burane.html" class="hover:text-gold-400 transition-colors">Home</a>
+                <a href="catalog.html" class="hover:text-gold-400 transition-colors">Catalog</a>
+                <a href="https://instagram.com/drink.burane" target="_blank" class="hover:text-gold-400 transition-colors">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script for Icons -->
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
